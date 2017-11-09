@@ -1,6 +1,7 @@
 // @flow
 
 import puppeteer from 'puppeteer';
+import onDeath from 'death';
 import {
   createPool
 } from 'generic-pool';
@@ -123,5 +124,24 @@ export const handler = async (argv: ArgvType) => {
         messageQueue.push(message);
       }
     });
+  });
+
+  setInterval(() => {}, 1000);
+
+  const closeServer = () => {
+    return new Promise((resolve) => {
+      wss.close(resolve);
+    });
+  };
+
+  onDeath(async () => {
+    log.debug('shutting down the cluster');
+
+    await pool.drain();
+    await pool.clear();
+
+    // @todo Close active connections to the server.
+
+    await closeServer();
   });
 };
