@@ -126,8 +126,6 @@ export const handler = async (argv: ArgvType) => {
     });
   });
 
-  setInterval(() => {}, 1000);
-
   const closeServer = () => {
     return new Promise((resolve) => {
       wss.close(resolve);
