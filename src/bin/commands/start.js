@@ -49,7 +49,10 @@ export const handler = async (argv: ArgvType) => {
     create: async () => {
       // @todo Make configurable.
       const browser = await puppeteer.launch({
-        args: [],
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox'
+        ],
         headless: true,
         ignoreHTTPSErrors: false
       });
