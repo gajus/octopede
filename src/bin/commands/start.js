@@ -47,7 +47,12 @@ export const handler = async (argv: ArgvType) => {
 
   const pool = createPool({
     create: async () => {
-      const browser = await puppeteer.launch();
+      // @todo Make configurable.
+      const browser = await puppeteer.launch({
+        args: [],
+        headless: true,
+        ignoreHTTPSErrors: false
+      });
 
       const url = browser._connection.url();
 
