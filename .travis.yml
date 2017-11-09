@@ -4,9 +4,9 @@ node_js:
 script:
   - npm run lint
   - npm run test
-  - nyc --silent npm run test
-  - nyc report --reporter=text-lcov | coveralls
-  - nyc check-coverage --lines 90
+  # - nyc --silent npm run test
+  # - nyc report --reporter=text-lcov | coveralls
+  # - nyc check-coverage --lines 90
 after_success:
   - NODE_ENV=production npm run build
   - semantic-release pre
