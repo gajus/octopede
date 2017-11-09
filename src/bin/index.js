@@ -3,7 +3,7 @@
 import yargs from 'yargs';
 
 yargs
-  .env('ROARR')
+  .env('OCTOPEDE')
   .commandDir('commands')
   .help()
   .wrap(80)
