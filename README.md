@@ -10,6 +10,15 @@ Headless Chrome orchestration service.
 
 ## Usage
 
+Refer to the CLI manual.
+
+```bash
+$ octopede --help
+
+```
+
+### Start a cluster
+
 ```bash
 $ octopede start \
   --maximum-instances 10 \
