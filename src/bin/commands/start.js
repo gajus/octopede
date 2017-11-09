@@ -141,5 +141,8 @@ export const handler = async (argv: ArgvType) => {
     // @todo Close active connections to the server.
 
     await closeServer();
+
+    // eslint-disable-next-line no-process-exit
+    process.exit();
   });
 };
